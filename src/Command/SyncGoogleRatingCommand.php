@@ -48,7 +48,7 @@ class SyncGoogleRatingCommand extends Command
                         'key' => $apiKey,
                         'fields' => "user_ratings_total,rating,reviews",
                         'reviews_sort' => "newest",
-                        'reviews_no_translations' => "true"
+                        'reviews_no_translations' => "true",
                     ],
                 ]);
 
@@ -69,7 +69,10 @@ class SyncGoogleRatingCommand extends Command
 
                         if ($setting->getRetrieveReviews()) {
                             $retrievedReviews = $content['result']['reviews'];
-                            $reviewsDB = $this->entityManager->getRepository(Review::class)->findBy(['isActive' => true, 'isFromGoogle' => true]);
+                            $reviewsDB = $this->entityManager->getRepository(Review::class)->findBy([
+                                'isActive' => true,
+                                'isFromGoogle' => true,
+                            ]);
                             $time = [];
                             foreach ($reviewsDB as $reviewDB) {
                                 $time[] = $reviewDB->getDate()->getTimestamp();

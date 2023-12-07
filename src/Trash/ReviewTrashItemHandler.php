@@ -55,7 +55,7 @@ class ReviewTrashItemHandler implements StoreTrashItemHandlerInterface, RestoreT
             "isFromGoogle" => $resource->isFromGoogle(),
             "clientImageId" => $clientImage ? $clientImage->getId() : null,
             "isActive" => $resource->isActive(),
-            "defaultLocal" => $resource->getDefaultLocale()
+            "defaultLocal" => $resource->getDefaultLocale(),
         ];
 
         return $this->trashItemRepository->create(
