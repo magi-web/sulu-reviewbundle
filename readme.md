@@ -13,6 +13,7 @@ Reviews can be retrieved automatically from Google My Business.
 ## Requirements
 
 * PHP >= 8.0
+* Composer
 * Sulu >= 2.5.*
 * Symfony >= 5.4
 
